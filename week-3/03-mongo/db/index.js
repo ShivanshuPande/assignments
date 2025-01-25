@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');   
 
-mongoose.connect("mongodb+srv://Shiv_2005:Shivanshu192005@cluster0.aw2rp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect("//databse-url")
 // Define schemas
 const AdminSchema = new mongoose.Schema({
     username : { type : String , required :true ,unique : true},
