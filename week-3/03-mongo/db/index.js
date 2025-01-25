@@ -1,19 +1,30 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose');   
 
-// Connect to MongoDB
-mongoose.connect('your-mongodb-url');
-
+mongoose.connect("mongodb+srv://Shiv_2005:Shivanshu192005@cluster0.aw2rp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 // Define schemas
 const AdminSchema = new mongoose.Schema({
-    // Schema definition here
+    username : { type : String , required :true ,unique : true},
+    password : {type : String , required : true },
+ 
+
 });
 
 const UserSchema = new mongoose.Schema({
-    // Schema definition here
-});
+    // Schema definition 
+    username: {type : String , required :true ,unique : true},
+    password : {type : String , required : true },
+    purchasedcourses :{
+        type :mongoose.Schema.Types.ObjectId,
+        ref:'Course'
+    }   
+    
+})
 
 const CourseSchema = new mongoose.Schema({
-    // Schema definition here
+    title :{type :String , required : true},
+    description : {type : String , required : true },
+    price :{type : Number , required : true },
+    imageLink : String
 });
 
 const Admin = mongoose.model('Admin', AdminSchema);
@@ -25,3 +36,4 @@ module.exports = {
     User,
     Course
 }
+
